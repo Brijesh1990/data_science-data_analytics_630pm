@@ -103,8 +103,6 @@ create database amazon_db_app;
 | default_date_time        | timestamp             | not null             |
 
 
-
-
 # how to create tables structured in database ? 
 
 - table create in form of **row and column**
@@ -120,4 +118,74 @@ columnname datatype(size) primary key auto_increment,
 column name datatype(size)
 )
 
+or
+
+create table users(
+
+id int primary key AUTO_INCREMENT,
+name varchar(255),
+email varchar(255),
+password varchar(255),
+mobile bigint,
+address text,
+country varchar(255)
+
+)
+
+or
+
+create table employee(
+
+empid int primary key AUTO_INCREMENT,
+name varchar(255),
+email varchar(255),
+password varchar(255),
+mobile bigint,
+address text,
+salary decimal(10,2),
+department varchar(255),
+country varchar(255)
+
+)
+
+or
+
+create table contact(
+contactid int primary key AUTO_INCREMENT,
+name varchar(255),
+email varchar(255),
+mobile bigint,
+message text,
+created_date date
+)
+
+or
+
+create table feedback(
+fid int primary key AUTO_INCREMENT,
+name varchar(255),
+email varchar(255),
+mobile bigint,
+rating enum('*','**','***','****','*****'),
+comment text,
+created_date date
+)
+
+```
+
+# alter 
+1. alter is used to add new column after create tables 
+2. alter update any column name 
+3. alter is use to delete any column name 
+
+**examples**
+
+```
+alter table users add state varchar(255);
+or
+alter table users change address permanent_address text;
+or
+alter table users drop state;
+or
+alter table users add pincode int after mobile;
 ```
