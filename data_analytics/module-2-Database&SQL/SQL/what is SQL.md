@@ -189,3 +189,39 @@ alter table users drop state;
 or
 alter table users add pincode int after mobile;
 ```
+
+
+# rename :
+
+1. rename is used to rename the table name after create table 
+
+```
+rename table contact to tbl_contact
+or
+rename table users to tbl_users
+or
+rename table employee to tbl_employee
+```
+
+# drop 
+1. drop is used to delete database 
+2. drop is used to delete table
+
+```
+drop database databasename;
+or
+drop database amazon_db_app;
+or
+drop table tablename;
+or
+drop table tbl_users;
+```
+
+# truncate :
+
+1. truncate is used to delete data from tables 
+2. truncate is used to delete all data from tables after truncate data we can not rollback data.
+
+```
+truncate table tbl_contact
+```
