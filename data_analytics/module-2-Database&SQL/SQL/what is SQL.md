@@ -225,3 +225,95 @@ drop table tbl_users;
 ```
 truncate table tbl_contact
 ```
+# DML : 
+1. data manipulation language 
+2. dml is used to insert | delete | update table in tables 
+
+# DML query are ..
+
+1. insert 
+2. delete 
+3. update 
+
+# insert :
+- insert a single data in tables 
+- insert a  multiple data in tables 
+
+```
+insert into tbl_employee(name,email,password,mobile,address,salary,department,country) VALUES('om','om@gmail.com','om123',9998003879,'150 feet ring road rajkot',145000,'IT','india');
+
+or
+
+insert into tbl_employee(name,email,password,mobile,address,salary,department,country) VALUES('twinkle','twinkle@gmail.com','tw123',9998003899,'150 feet ring road rajkot',145000,'IT','india'),('mahiraj','mahiraj@gmail.com','mahi123',9998003889,'150 feet ring road ahemdabad',155000,'CSE','india');
+
+or
+
+insert into tbl_employee VALUES(null,'brijesh','brijesh@gmail.com','brij123',9998008899,'150 feet ring road rajkot',145000,'EC','india'),(null,'rakesh','rakesh@gmail.com','rakesh123',9998003889,'150 feet ring road ahemdabad',155000,'CSE','india');
+
+```
+
+# delete data ? 
+1. delete is used to delete all data 
+2. delete is also used to delete a single 
+3. delete is also used to delete a alternate data 
+4. delete is also used to delete a range of data 
+5. after delete we can rollback data
+
+**examples**
+
+```
+delete from tbl_employee;
+or
+delete from tbl_employee where empid=1;
+or
+delete from tbl_employee where name='brijesh';
+or
+delete from tbl_employee where empid in(2,4);
+or
+delete from tbl_employee where empid between 50 and 100;
+
+```
+
+# update data from table ?
+1. update data from tables 
+
+**examples**
+```
+update tbl_employee set name='rakesh',email='rakesh@gmail.com',mobile=81362200,address='CA b/USA',salary=850000,department='DA', country='USA' where empid=5;
+
+```
+
+
+# DQL :
+1. data query language 
+2. data query language is used to select data or fetch data 
+3. DQL is used basically for select data
+
+# DQL query are ...
+
+1. select 
+
+```
+select * from tbl_employee;
+or
+select * from tbl_employee where empid=2;
+or
+select * from tbl_employee where name='mahiraj';
+or
+select * from tbl_employee where empid in(2,4);
+or
+select * from tbl_employee where empid between 50 and 70;
+or
+select empid,name,email,mobile from tbl_employee;
+or
+select empid,name,email,mobile from tbl_employee where empid in (2,3);
+or
+select empid,name,email,mobile from tbl_employee where empid in (2,3);
+or
+select empid,name,email,mobile from tbl_employee where empid between 2 and 5;
+```
+
+
+
+
+
