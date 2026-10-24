@@ -3,27 +3,19 @@
 2. SQL is used to create an structured of **database** and **table**
 3. SQL is case insestive language
 **examples : insert | Insert | INSERT**
-
 4. SQL is used to created structured 
 5. SQL create database
 6. SQL also create tables    
 7. SQL should not create logic  its create a query 
-
-
 # DBMS or MySQL setup 
 1. download xampp server tools and install
 ```
 https://www.apachefriends.org/
-
 xampp => xampp control => start apache and mysql service
-
 open any broswers 
-
 localhost/phpmyadmin
-
 ```
 ![alt text](image.png)
-
 
 2. download Mysqlworkbench8.0 and install
 
@@ -311,9 +303,142 @@ or
 select empid,name,email,mobile from tbl_employee where empid in (2,3);
 or
 select empid,name,email,mobile from tbl_employee where empid between 2 and 5;
+
 ```
 
+# limit  ...
 
+- limit is used for select data apply limit keyword
 
+**syntax or examples**
 
+```
+select * from tbl_employee where empid limit 0,5;
+or
+select * from tbl_employee where empid limit 2,4;
+or
 
+select * from tbl_employee where empid limit 1,3;
+```
+
+# order  by :
+
+- order by is used to select data in **ascending** or **descending** order
+- order by by default sort data **asc**
+
+**syntax or examples**
+```
+select * from tbl_employee order by name asc;
+or
+select * from tbl_employee order by empid asc;
+or
+select * from tbl_employee order by name desc;
+or
+select * from tbl_employee order by empid desc;
+or
+select * from tbl_employee order by name;
+
+```
+# group by :
+
+- group by is used to filter data on group of columns 
+- group by always used to applied on group of columns 
+- group by used having keyword for checking condition 
+- after group by **having** is used in place of where
+
+**syntax and examples**
+
+```
+select sum(salary), department from tbl_employee group by department;
+or
+select sum(salary), department from tbl_employee where salary >50000 group by department;
+
+or
+
+select sum(salary), department from tbl_employee where age >25 group by department having sum(salary) >65000;
+
+or
+
+select sum(salary), department from tbl_employee where age >25 group by department having sum(salary) >155000;
+
+or
+
+select sum(salary), department from tbl_employee where age >25 group by department having sum(salary) >655000;
+
+```
+
+# like operator : 
+
+- like operator is used for searching data from table with keyword
+- like operator is used for searching 
+
+**examples and syntax**
+
+```
+select * from tbl_employee where name like 't%'
+or
+select * from tbl_employee where name like 'o%'
+or
+select * from tbl_employee where name like '%h'
+or
+select * from tbl_employee where name like '%a%'
+
+```
+# what is subquery ?
+```
+subquery are used to query within another query i.e called subquery 
+**example**
+select max(salary) as second_highest_salary from tbl_employee where salary <(select max(salary) from tbl_employee)
+```
+
+# w.a.q to find second highest salary ...
+1. w.a.q to find second highest salary via sub query 
+2. subquery are used to query within another query 
+
+# examples 
+
+```
+select max(salary) as second_highest_salary from tbl_employee where salary <(select max(salary) from tbl_employee)
+
+```
+
+# w.a.q to find a second_highest_salary from tables employee but used limit and order by 
+
+# examples ..
+
+```
+select salary as second_highest_salary from tbl_employee order by salary desc limit 1,1;
+or
+select salary as third_highest_salary from tbl_employee order by salary desc limit 2,1;
+or
+select salary as fourth_highest_salary from tbl_employee order by salary desc limit 3,1;
+
+```
+
+# w.a.q of find systems default time and date with timezone
+# examples
+
+```
+select now();
+or
+select CURRENT_DATE();
+or
+select CURRENT_TIME();
+```
+
+# w.a.q to get sum of salary to those employee whose age is greater than 30 years and department is it 
+
+```
+select sum(salary) from tbl_employee where age>30 and department='IT';
+or
+select sum(salary) from tbl_employee where age>30 and department='CSE';
+or
+select sum(salary) from tbl_employee where age>=30 and department='EC';
+
+```
+
+# w.a.q to find sum of salary on department wise using group by
+
+```
+select sum(salary), department from tbl_employee group by department
+```
