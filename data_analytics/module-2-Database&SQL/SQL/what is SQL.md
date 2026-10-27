@@ -1,4 +1,5 @@
-~# what is SQL ?
+# what is SQL ?
+
 1. SQL is stands for structured query language 
 2. SQL is used to create an structured of **database** and **table**
 3. SQL is case insestive language
@@ -8,6 +9,7 @@
 6. SQL also create tables    
 7. SQL should not create logic  its create a query 
 # DBMS or MySQL setup 
+
 1. download xampp server tools and install
 ```
 https://www.apachefriends.org/
@@ -385,10 +387,17 @@ select * from tbl_employee where name like '%a%'
 
 ```
 # what is subquery ?
+1. subquery are used to query within another query i.e called subquery 
+2. query within another query i.e called subquery 
+
 ```
-subquery are used to query within another query i.e called subquery 
 **example**
 select max(salary) as second_highest_salary from tbl_employee where salary <(select max(salary) from tbl_employee)
+
+or 
+
+select max(salary) from tbl_employee where salary < (select max(salary) FROM tbl_employee)
+
 ```
 
 # w.a.q to find second highest salary ...
@@ -436,9 +445,122 @@ or
 select sum(salary) from tbl_employee where age>=30 and department='EC';
 
 ```
-
 # w.a.q to find sum of salary on department wise using group by
-
 ```
 select sum(salary), department from tbl_employee group by department
 ```
+
+# w.a.p to find max salary , second highest salary , third highest salary 
+
+```
+select * from tbl_employee order by salary  desc limit 0,1; 
+or
+select * from tbl_employee order by salary  desc limit 1,1;
+or
+select * from tbl_employee order by salary  desc limit 2,1;
+or
+select * from tbl_employee order by salary  desc limit 3,1;   
+
+```
+
+
+# SQL function ...
+
+1. SQL function provides some inbuilt function to performed any task
+2. SQL function is used to provides max | min | avg | count | sum etc 
+
+# types of SQL function 
+
+1. aggrigate function 
+2. scalar function 
+
+# aggrigate function 
+
+- max()
+- min()
+- avg()
+- sum()
+- count()
+
+# examples 
+
+```
+select max(salary) from tbl_employee;
+or
+select min(salary) from tbl_employee;
+or
+select avg(salary) from tbl_employee;
+or
+select sum(salary) from tbl_employee;
+or
+select count(empid) from tbl_employee;
+or
+select sum(salary) as sumof_salary from tbl_employee;
+```
+
+# scalar function 
+
+- first()
+- last()
+- lcase()
+- ucase()
+- now()
+
+# examples 
+
+```
+select first(empid) from tbl_employee
+or
+select last(empid) from tbl_employee
+or
+select lcase(name) from tbl_employee
+or
+select ucase(name) from tbl_employee
+or
+select now()
+or
+select CURRENT_DATE();
+or
+select CURRENT_DATE();
+or
+select CURRENT_TIME()
+or
+select CURRENT_TIMESTAMP()
+
+```
+
+# TCL : transactional query language 
+
+1. TCL stands for transactional query language 
+2. TCL is used for commit and rollback data 
+
+# query are .. 
+
+1. commit 
+2. rollback 
+
+1. commit : commit is used to save data after deleted data 
+2. rollback: rollback are used to rollback a data after deleted 
+
+# examples : 
+
+```
+start TRANSACTION;
+delete from tbl_employee where empid=8;
+select * from tbl_employee where empid=8;
+rollback;
+select * from tbl_employee where empid=8;
+
+
+```
+
+# SQL key constraints ? 
+1. SQL key constraints provides limit on tables 
+2. there are some types of key constraints 
+
+# types of SQL key constraints 
+
+1. primary key 
+2. unique key 
+3. foreign key 
+4. compound key 
